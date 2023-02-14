@@ -1,0 +1,8 @@
+@import "../../styles/colors.scss";
+@import "../../styles/titleStyle.scss";
+
+.todo-list {
+  .todo-list-title {
+    @include titleStyle();
+  }
+}
