@@ -1,0 +1,36 @@
+@import "../../styles/colors.scss";
+@import "../../styles/textStyle.scss";
+@import "../../styles/titleStyle.scss";
+@import "../../styles/buttonStyle.scss";
+
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  .form-title {
+    @include titleStyle();
+  }
+  .form-container {
+    box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 1px 20px 0;
+    padding-inline: 5vw;
+    padding-block: 4vw;
+    border-radius: 0.3rem;
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1vw;
+      .form-input {
+        @include textStyle($eerie-black);
+        border: 1px solid $platinum;
+        padding: 0.5vw;
+        outline: none;
+        border-radius: 0.3rem;
+      }
+      ::placeholder {
+        @include textStyle($french-gray);
+      }
+      .form-button {
+        @include buttonStyle();
+      }
+    }
+  }
+}
