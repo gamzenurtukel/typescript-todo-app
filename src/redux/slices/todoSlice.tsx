@@ -1,13 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
+import { todoList } from "../../types/type";
 
 const initialState = {
-  todoList: [],
+  todoList: [] as todoList[],
 };
 
 const todoSlice = createSlice({
   name: "todo",
   initialState,
-  reducers: {},
+  reducers: {
+    addTodo: (state, action: PayloadAction<string>) => {
+      state.todoList = [
+        {
+          id: nanoid(),
+          value: action.payload,
+          isDone: false,
+        },
+        ...state.todoList,
+      ];
+    },
+  },
 });
-
+export const { addTodo } = todoSlice.actions;
 export default todoSlice.reducer;
