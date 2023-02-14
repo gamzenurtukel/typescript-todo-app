@@ -1,0 +1,15 @@
+@import "../../styles/colors.scss";
+@import "../../styles/textStyle.scss";
+@import "../../styles/titleStyle.scss";
+@import "../../styles/buttonStyle.scss";
+
+.todo-filter-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .button-item {
+    @include buttonStyle();
+    width: 20vw;
+  }
+}
