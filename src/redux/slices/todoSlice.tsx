@@ -61,11 +61,21 @@ const todoSlice = createSlice({
       state.notComplateTodoList = [];
       state.completeTodoList = [];
     },
+    resetDoneTodos: (state) => {
+      state.todoList.map((todo) => {
+        if (todo.isDone) {
+          state.todoList = state.todoList.filter((x) => x.id !== todo.id);
+        }
+        return todo;
+      });
+      state.completeTodoList = [];
+    },
   },
 });
 export const getNotIsDoneTodos = (state: RootState) =>
   state.todos.notComplateTodoList;
 export const getDoneTodos = (state: RootState) => state.todos.completeTodoList;
 export const getAllTodo = (state: RootState) => state.todos.todoList;
-export const { addTodo, deleteTodo, completeTodo, resetTodos } = todoSlice.actions;
+export const { addTodo, deleteTodo, completeTodo, resetTodos, resetDoneTodos } =
+  todoSlice.actions;
 export default todoSlice.reducer;
