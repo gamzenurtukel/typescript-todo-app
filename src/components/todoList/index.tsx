@@ -4,12 +4,12 @@ import TodoFilterButtons from "../todoFilterButtons";
 import { getAllTodo } from "../../redux/slices/todoSlice";
 import { useAppSelector } from "../../redux/hook";
 import TodoItem from "../todoItem";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { todoList } from "../../types/type";
 import { getDoneTodos, getNotIsDoneTodos } from "../../redux/slices/todoSlice";
 import TodoDeleteButtons from "../tododeleteButtons";
 
-const TodoList = () => {
+const TodoList: React.FC = () => {
   const [todoListData, setTodoListData] = useState<todoList[]>();
   const [doneClick, setDoneClick] = useState<boolean>(false);
   const [notIsDoneClick, setnotIsDoneClick] = useState<boolean>(false);
