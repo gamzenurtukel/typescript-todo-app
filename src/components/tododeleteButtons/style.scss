@@ -1,0 +1,16 @@
+@import "../../styles/colors.scss";
+@import "../../styles/textStyle.scss";
+@import "../../styles/titleStyle.scss";
+@import "../../styles/buttonStyle.scss";
+
+.todo-delete-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2vw;
+  .button-item {
+    @include textStyle($white);
+    @include buttonStyle($red-pantone);
+    width: 100%;
+  }
+}
