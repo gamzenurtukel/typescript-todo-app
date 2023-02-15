@@ -9,7 +9,7 @@
   justify-content: space-between;
 
   .button-item {
-    @include buttonStyle();
+    @include buttonStyle($cerulean);
     width: 20vw;
   }
 }

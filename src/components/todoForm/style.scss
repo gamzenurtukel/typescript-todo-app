@@ -29,7 +29,7 @@
         @include textStyle($french-gray);
       }
       .form-button {
-        @include buttonStyle();
+        @include buttonStyle($cerulean);
       }
     }
   }
