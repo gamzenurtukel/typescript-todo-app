@@ -7,6 +7,7 @@ import TodoItem from "../todoItem";
 import { useEffect, useState } from "react";
 import { todoList } from "../../types/type";
 import { getDoneTodos, getNotIsDoneTodos } from "../../redux/slices/todoSlice";
+import TodoDeleteButtons from "../tododeleteButtons";
 
 const TodoList = () => {
   const [todoListData, setTodoListData] = useState<todoList[]>();
@@ -71,6 +72,9 @@ const TodoList = () => {
         {todoListData?.map((item) => (
           <TodoItem key={item.id} item={item} />
         ))}
+      </div>
+      <div className="todo-list-row-delete">
+        <TodoDeleteButtons />
       </div>
     </div>
   );
