@@ -1,11 +1,11 @@
-@mixin buttonStyle {
+@mixin buttonStyle($color) {
   @include textStyle($white);
   outline: none;
   border: none;
   cursor: pointer;
   padding: 0.6vw;
   border-radius: 0.3rem;
-  background-color: $cerulean;
+  background-color: $color;
   transition: filter 0.3s ease-out;
   &:hover {
     filter: brightness(1.1);
