@@ -1,13 +1,13 @@
 import "./style.scss";
 
-import { resetTodo } from "../../redux/slices/todoSlice";
+import { resetTodos } from "../../redux/slices/todoSlice";
 import { useAppDispatch } from "../../redux/hook";
 
 const TodoDeleteButtons: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const deleteAllTodoButtonOnClick = () => {
-    dispatch(resetTodo());
+    dispatch(resetTodos());
   };
 
   return (
