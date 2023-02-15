@@ -26,6 +26,7 @@ const todoSlice = createSlice({
         if (!todo) {
           state.notComplateTodoList.push(x);
         }
+        return x;
       });
     },
     deleteTodo: (state, action: PayloadAction<string>) => {
