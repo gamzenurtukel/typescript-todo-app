@@ -67,7 +67,7 @@ const TodoList = () => {
           todoButtonOnClick={todoButtonOnClick}
         />
       </div>
-      <div>
+      <div className="todo-list-items-container">
         {todoListData?.map((item) => (
           <TodoItem key={item.id} item={item} />
         ))}
