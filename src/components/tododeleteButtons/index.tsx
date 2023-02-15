@@ -8,7 +8,6 @@ const TodoDeleteButtons: React.FC = () => {
 
   const deleteAllTodoButtonOnClick = () => {
     dispatch(resetTodo());
-    console.log("tıklandı");
   };
 
   return (
