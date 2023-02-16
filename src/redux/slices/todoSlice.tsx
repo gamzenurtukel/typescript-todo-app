@@ -6,6 +6,7 @@ const initialState = {
   todoList: [] as todoList[],
   completeTodoList: [] as todoList[],
   notComplateTodoList: [] as todoList[],
+  selectedTodo: [] as todoList[],
 };
 
 const todoSlice = createSlice({
@@ -70,12 +71,41 @@ const todoSlice = createSlice({
       });
       state.completeTodoList = [];
     },
+    setTodo: (state, action) => {
+      state.todoList.map((todo) => {
+        if (todo.id === action.payload.id) {
+          state.selectedTodo = [todo];
+        }
+      });
+    },
+    editTodo: (state, action) => {
+      state.selectedTodo[0].value = action.payload;
+      state.todoList.map((todo) => {
+        if (todo.id === state.selectedTodo[0].id) {
+          todo.value = state.selectedTodo[0].value;
+        }
+        return todo;
+      });
+      state.notComplateTodoList.map((todo) => {
+        if (todo.id === state.selectedTodo[0].id) {
+          todo.value = state.selectedTodo[0].value;
+        }
+        return todo;
+      });
+    },
   },
 });
 export const getNotIsDoneTodos = (state: RootState) =>
   state.todos.notComplateTodoList;
 export const getDoneTodos = (state: RootState) => state.todos.completeTodoList;
 export const getAllTodo = (state: RootState) => state.todos.todoList;
-export const { addTodo, deleteTodo, completeTodo, resetTodos, resetDoneTodos } =
-  todoSlice.actions;
+export const {
+  addTodo,
+  deleteTodo,
+  completeTodo,
+  resetTodos,
+  resetDoneTodos,
+  editTodo,
+  setTodo,
+} = todoSlice.actions;
 export default todoSlice.reducer;
