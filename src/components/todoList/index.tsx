@@ -4,7 +4,7 @@ import TodoFilterButtons from "../todoFilterButtons";
 import { getAllTodo } from "../../redux/slices/todoSlice";
 import { useAppSelector } from "../../redux/hook";
 import TodoItem from "../todoItem";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { todoList } from "../../types/type";
 import { getDoneTodos, getNotIsDoneTodos } from "../../redux/slices/todoSlice";
 import TodoDeleteButtons from "../tododeleteButtons";
@@ -19,6 +19,11 @@ const TodoList: React.FC = () => {
   const todoList = useAppSelector(getAllTodo);
   const doneTodoList = useAppSelector(getDoneTodos);
 
+  const reverseNotIsDoneTodoList = useMemo(
+    () => [...notIsDoneTodoList].reverse(),
+    [notIsDoneTodoList]
+  );
+
   useEffect(() => {
     setTodoListData(todoList);
     if (doneClick) {
@@ -28,7 +33,7 @@ const TodoList: React.FC = () => {
       setTodoListData(todoList);
     }
     if (notIsDoneClick) {
-      setTodoListData(notIsDoneTodoList);
+      setTodoListData(reverseNotIsDoneTodoList);
     }
   }, [
     todoListData,
@@ -38,6 +43,7 @@ const TodoList: React.FC = () => {
     allClick,
     notIsDoneClick,
     notIsDoneTodoList,
+    reverseNotIsDoneTodoList,
   ]);
 
   const doneButtonOnClick = () => {
