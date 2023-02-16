@@ -16,6 +16,32 @@
       color: $red-pantone;
       text-decoration: line-through;
     }
+    .form-edit {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1vw;
+      padding-block: 0.2vw;
+      .form-input {
+        display: flex;
+        margin-block: 1vw;
+        outline: none;
+        border: 1px solid $platinum;
+        padding: 0.2vw;
+        border-radius: 0.3rem;
+        @include textStyle($eerie-black);
+      }
+
+      .form-button {
+        @include textStyle($white);
+        background-color: $selective-yellow;
+        outline: none;
+        border: none;
+        padding-block: 0.2vw;
+        padding-inline: 0.7vw;
+        border-radius: 0.3rem;
+      }
+    }
   }
   .item-buttons {
     display: flex;
